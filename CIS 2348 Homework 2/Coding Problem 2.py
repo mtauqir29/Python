@@ -52,15 +52,26 @@ def abstract_date(date):
     else:
         return ""
 
+file = open('inputDates.txt', 'r')
+file_dates = []
+file_dates = file.readlines()
+file.close()
+
+for i in range(len(file_dates) - 1):
+    file_dates[i] = file_dates[i][:-1]
 
 # Main program
-date = input()
 
-while (date != "-1"):
-    latest_date = abstract_date(date)
+print("Input file content:\n")
+for i in file_dates:
+    print(i)
+
+print("\nOutput\n")
+for i in file_dates:
+    if i == "-1":
+        break
+
+    latest_date = abstract_date(i)
 
     if latest_date != "":
         print(latest_date)
-
-    print()
-    date = input()
