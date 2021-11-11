@@ -1,0 +1,43 @@
+"""  Mohammad Zaid Tauqir
+     PSID: 1900570
+"""
+
+class FoodItem:
+    def __init__(self, item_name = 'None', amount_of_fats = 0.0, amount_of_carbs = 0.0, amount_of_proteins = 0.0):
+        self.name = item_name
+        self.fat = amount_of_fats
+        self.carbs = amount_of_carbs
+        self.protein = amount_of_proteins
+
+
+    def get_calories(self, num_servings):
+        # Calorie formula
+        calories = ((self.fat * 9) + (self.carbs * 4) + (self.protein * 4)) * num_servings;
+        return calories
+
+    def print_info(self):
+        print('Nutritional information per serving of {}:'.format(self.name))
+        print('   Fat: {:.2f} g'.format(self.fat))
+        print('   Carbohydrates: {:.2f} g'.format(self.carbs))
+        print('   Protein: {:.2f} g'.format(self.protein))
+
+
+if __name__ == "__main__":
+    food_item1 = FoodItem()
+
+    item_name = input()
+    amount_fat = float(input())
+    amount_carbs = float(input())
+    amount_protein = float(input())
+
+    food_item2 = FoodItem(item_name, amount_fat, amount_carbs, amount_protein)
+
+    num_servings = float(input())
+
+    food_item1.print_info()
+    print('Number of calories for {:.2f} serving(s): {:.2f}'.format(num_servings, food_item1.get_calories(num_servings)))
+
+    print()
+
+    food_item2.print_info()
+    print('Number of calories for {:.2f} serving(s): {:.2f}'.format(num_servings, food_item2.get_calories(num_servings)))
